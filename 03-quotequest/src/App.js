@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 // Generate your own key https://api-ninjas.com
 const API_KEY = "";
-
 const categories = [
   "age",
   "alone",
@@ -72,18 +71,17 @@ const categories = [
   "movies",
   "success",
 ];
+function getRandomCategory() {
+  const categoriesLength = categories.length - 1;
+  const randIndex = Math.floor(Math.random() * categoriesLength);
+  return categories[randIndex];
+}
 
 export default function App() {
   const [quote, setQuote] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  function getRandomCategory() {
-    const categoriesLength = categories.length - 1;
-    const randIndex = Math.floor(Math.random() * categoriesLength);
-    return categories[randIndex];
-  }
-
-  async function fetchQuote() {
+  const fetchQuote = useCallback(async () => {
     try {
       setIsLoading(true);
       const res = await fetch(
@@ -94,7 +92,6 @@ export default function App() {
           },
         }
       );
-
       const data = await res.json();
       setQuote(data[0]);
     } catch (err) {
@@ -102,11 +99,11 @@ export default function App() {
     } finally {
       setIsLoading(false);
     }
-  }
+  }, []);
 
   useEffect(() => {
     fetchQuote();
-  }, []);
+  }, [fetchQuote]);
 
   return (
     <div className="container">
