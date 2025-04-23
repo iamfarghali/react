@@ -1,8 +1,13 @@
+import SectionWrapper from "./SectionWrapper";
+
 function Workout() {
   return (
-    <div>
+    <SectionWrapper
+      header="Generate your workout"
+      title={["it's", "Huge", "o'clock"]}
+    >
       <h1>Workout</h1>
-    </div>
+    </SectionWrapper>
   );
 }
 
