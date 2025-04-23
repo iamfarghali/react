@@ -164,3 +164,4 @@ function exercisesFlattener(exercisesObj) {
   }
   return flattenedObj;
 }
+  
