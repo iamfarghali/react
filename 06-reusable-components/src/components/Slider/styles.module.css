@@ -1,0 +1,90 @@
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+}
+.slides {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.slides-indicators {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.slides-indicators button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #c6c6c6;
+  padding: 2px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slides-indicators button:focus-visible {
+  outline: 1px solid rgb(218, 218, 218);
+  outline-offset: 4px;
+}
+
+.slides-indicators button::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+.slides-indicators button.active::after {
+  background-color: rgb(152, 15, 15);
+}
+
+.slide {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: translate 0.3s ease-in-out;
+}
+
+.controls button {
+  position: absolute;
+  height: 90%;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background-color: hsla(15, 12%, 74%, 0.355);
+  border: none;
+  padding: 10px 22px;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.controls button:hover,
+.controls button:focus-visible {
+  background-color: hsla(214, 12%, 74%, 0.746);
+}
+
+.controls button:first-child {
+  left: 0;
+}
+
+.controls button:last-child {
+  right: 0;
+}

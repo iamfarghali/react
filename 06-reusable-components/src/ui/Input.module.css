@@ -1,0 +1,19 @@
+/* General input styles */
+input {
+  font-family: Arial, sans-serif;
+  font-size: 1.6rem; 
+  padding: 1rem; 
+  border: 1px solid #ccc; 
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+input:focus{
+  border-color: #007BFF; 
+  outline: none;
+}
+
+input::placeholder {
+  color: #aaa; 
+  opacity: 1;
+}

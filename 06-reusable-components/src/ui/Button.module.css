@@ -1,0 +1,152 @@
+:root {
+  /* Primary colors */
+  --color-primary: hsl(199, 90%, 57%);
+  --color-primary-hover: hsl(199, 90%, 52%);
+  --color-primary-text: hsl(0, 0%, 100%);
+
+  /* Secondary colors (Dark Gray) */
+  --color-secondary: hsl(210, 12%, 16%);
+  --color-secondary-hover: hsl(210, 12%, 21%);
+  --color-secondary-text: hsl(0, 0%, 100%);
+
+  /* Tertiary colors (Light Gray) */
+  --color-tertiary: hsl(204, 12%, 90%);
+  --color-tertiary-hover: hsl(204, 12%, 85%);
+  --color-tertiary-text: hsl(210, 12%, 16%);
+
+  /* Neutral colors */
+  --color-background: hsl(0, 0%, 100%);
+  --color-text: hsl(210, 12%, 16%);
+  --color-border: hsl(204, 12%, 90%);
+
+  /* Error color */
+  --color-error: hsl(3, 90%, 57%);
+  --color-error-hover: hsl(3, 90%, 52%);
+  --color-error-text: hsl(0, 0%, 100%);
+
+  /* Warning color */
+  --color-warning: hsl(18, 90%, 57%);
+  --color-warning-hover: hsl(18, 90%, 52%);
+  --color-warning-text: hsl(0, 0%, 100%);
+
+  /* Success color */
+  --color-success: hsl(116, 75%, 45%);
+  --color-success-hover: hsl(116, 75%, 43%);
+  --color-success-text: hsl(0, 0%, 100%);
+}
+
+.btn {
+  border: 1px solid var(--color-border);
+  background: var(--color-background);
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem; /* gap between icon and text */
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary-text);
+}
+.primary:hover:not(.disabled) {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+.secondary {
+  background-color: var(--color-secondary);
+  border-color: var(--color-border);
+  color: var(--color-secondary-text);
+}
+.secondary:hover:not(.disabled) {
+  background-color: var(--color-secondary-hover);
+  border-color: var(--color-secondary-text);
+}
+
+.tertiary {
+  background-color: var(--color-tertiary);
+  border-color: var(--color-tertiary);
+  color: var(--color-tertiary-text);
+}
+.tertiary:hover:not(.disabled) {
+  background-color: var(--color-tertiary-hover);
+  border-color: var(--color-tertiary-hover);
+}
+
+.error {
+  background-color: var(--color-error);
+  border-color: var(--color-error);
+  color: var(--color-error-text);
+}
+.error:hover:not(.disabled) {
+  background-color: var(--color-error-hover);
+  border-color: var(--color-error-hover);
+}
+
+.warning {
+  background-color: var(--color-warning);
+  border-color: var(--color-warning);
+  color: var(--color-warning-text);
+}
+.warning:hover:not(.disabled) {
+  background-color: var(--color-warning-hover);
+  border-color: var(--color-warning-hover);
+}
+
+.success {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+  color: var(--color-success-text);
+}
+.success:hover:not(.disabled) {
+  background-color: var(--color-success-hover);
+  border-color: var(--color-success-hover);
+}
+
+.neutral {
+  background-color: var(--color-neutral);
+  border-color: var(--color-neutral);
+  color: var(--color-neutral-text);
+}
+.neutral:hover:not(.disabled) {
+  background-color: var(--color-neutral-hover);
+  border-color: var(--color-neutral-hover);
+}
+
+/* -- Variants -- */
+
+/* Sizes */
+
+.sm {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  height: 4rem;
+}
+
+.md {
+  padding: 1.2rem 2.4rem;
+  font-size: 1.8rem;
+  height: 5rem;
+}
+
+.lg {
+  padding: 1.4rem 2.8rem;
+  font-size: 2rem;
+  height: 6rem;
+}
+/* -- Sizes -- */
