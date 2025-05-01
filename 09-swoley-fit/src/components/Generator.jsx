@@ -17,11 +17,8 @@ function Header({ index, title, description }) {
   );
 }
 
-function Generator() {
+function Generator({poison, muscles, goal, setMuscles, setPoison, setGoal, updatedWorkout}) {
   const [showModal, setShowModal] = useState(false);
-  const [poison, setPoison] = useState("individual");
-  const [muscles, setMuscles] = useState([]);
-  const [goal, setGoal] = useState("strength_power");
 
   function updateMuscles(muscleGroup) {
     // toggle muscleGroup
@@ -138,7 +135,7 @@ function Generator() {
         </div>
       </div>
 
-      <Button>Formulate</Button>
+      <Button onClick={updatedWorkout}>Formulate</Button>
     </SectionWrapper>
   );
 }

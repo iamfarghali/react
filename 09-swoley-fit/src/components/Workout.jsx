@@ -1,12 +1,16 @@
+import ExerciseCard from "./ExerciseCard";
 import SectionWrapper from "./SectionWrapper";
 
-function Workout() {
+function Workout({workout}) {
+  console.log(workout);
   return (
     <SectionWrapper
-      header="Generate your workout"
-      title={["it's", "Huge", "o'clock"]}
+      header="Welcome to"
+      title={["The", "DANGER", "Zone"]}
     >
-      <h1>Workout</h1>
+     <div className="flex flex-col gap-4">
+     {workout.map((exercise, idx) => <ExerciseCard key={idx} exercise={exercise} idx={idx} />)}
+     </div>
     </SectionWrapper>
   );
 }
