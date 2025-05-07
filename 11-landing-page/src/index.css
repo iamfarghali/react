@@ -1,6 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
 * {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Raleway", sans-serif;
 }
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding: 100px;
+}
+
+.animate-marquee {
+    animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(-1%) ;}
+    100% { transform: translateX(-99%) ;}
+}  
