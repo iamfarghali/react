@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import CompanyLogo from './components/CompanyLogo'
 import PurposeSection from './components/PurposeSection'
+import FeaturesSection from './components/FeaturesSection'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
     <Hero />
     <CompanyLogo />
     <PurposeSection />
+    <FeaturesSection />
 
     {/* <div className='flex flex-col py-96'>
       <img src={overviewImg} className='w-100 h-100' alt=""/>
