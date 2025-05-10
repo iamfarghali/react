@@ -30,7 +30,7 @@ function ServicesSection() {
 
 return (
     <Section>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-8'>
+        <div id='services' className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-8'>
             {/* First box */}
             <div className="md:mt-8 lg:max-w-2/3 flex flex-col items-start gap-6 px-4">
                 <h2 className='text-gray-700 font-bold text-2xl sm:text-3xl md:text-4xl'>Future of support with new shape</h2>
@@ -59,7 +59,7 @@ return (
                  {services.map((service, idx) => (
                     <div key={idx} className="flex flex-col gap-3 justify-between p-4 rounded-3xl hover:shadow duration-200 hover:scale-105 cursor-pointer">
                         {/* Icon */}
-                        <div className="w-2 h-2 flex items-center justify-center p-4 rounded-full bg-red-400">
+                        <div className="w-2 h-2 flex items-center justify-center p-4 rounded-full text-yellow-950 bg-yellow-400">
                             <i className="text-xl">{service.icon}</i>
                         </div>
                        <div className="flex flex-col gap-1 px-1">

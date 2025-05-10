@@ -10,6 +10,8 @@ import ServicesSection from './components/ServicesSection'
 
 import './App.css'
 import TestimonialSection from './components/TestimonialSection'
+import NewsletterSection from './components/NewsletterSection'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
       <PricingSection />
       <ServicesSection />
       <TestimonialSection />
+      <NewsletterSection />
+      <Footer />
    </main>
   )
 }

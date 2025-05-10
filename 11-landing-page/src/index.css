@@ -19,3 +19,8 @@ html {
     0% { transform: translateX(-1%) ;}
     100% { transform: translateX(-99%) ;}
 }  
+
+.clip-path-slant {
+clip-path: polygon(15% 0, 100% 0%, 100% 100%, 0% 100%);
+
+}

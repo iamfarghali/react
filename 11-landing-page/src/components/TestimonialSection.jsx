@@ -51,7 +51,7 @@ function TestimonialSection() {
 
   return (
     <Section>
-      <div className="text-center mb-12">
+      <div id="testimonials" className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-700">
           What out happy clients say
         </h2>
