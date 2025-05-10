@@ -1,25 +1,30 @@
-import './App.css'
-import overviewImg from "./assets/overview.png"
-
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import CompanyLogo from './components/CompanyLogo'
 import PurposeSection from './components/PurposeSection'
 import FeaturesSection from './components/FeaturesSection'
+import ScheduleSection from './components/ScheduleSection'
+import MonitorSection from './components/MonitorSection'
+import PricingSection from './components/PricingSection'
+import ServicesSection from './components/ServicesSection'
+
+import './App.css'
+import TestimonialSection from './components/TestimonialSection'
 
 function App() {
   return (
-  <main className='bg-gradient-to-r from-red-50 to-blue-100 min-h-screen overflow-x-hidden'>
-    <Navbar />
-    <Hero />
-    <CompanyLogo />
-    <PurposeSection />
-    <FeaturesSection />
-
-    {/* <div className='flex flex-col py-96'>
-      <img src={overviewImg} className='w-100 h-100' alt=""/>
-    </div> */}
-  </main>
+    <main className='bg-gradient-to-r from-red-50 to-blue-100 min-h-screen overflow-x-hidden'>
+      <Navbar />
+      <Hero />
+      <CompanyLogo />
+      <PurposeSection />
+      <FeaturesSection />
+      <ScheduleSection />
+      <MonitorSection />
+      <PricingSection />
+      <ServicesSection />
+      <TestimonialSection />
+   </main>
   )
 }
 

@@ -21,7 +21,7 @@ function FeaturesSection() {
       ];
 
     return (
-        <section className="container mx-auto flex flex-col gap-14 items-center justify-center pt-12 pb-32 px-4 sm:px-6 md:px-8">
+        <section className="container mx-auto flex flex-col gap-14 items-center justify-center py-16 px-4 sm:px-6 md:px-8">
             {/* Header */}
             <div className="flex flex-col items-center gap-3">
                 <h2 className="text-gray-700 text-2xl sm:text-3xl md:text-4xl font-semibold">How can we help your business?</h2>
@@ -45,9 +45,8 @@ function FeaturesSection() {
             </div>
 
             {/* CTA */}
-
             <button 
-            className="-mt-2 px-6 py-3 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-300">
+            className="px-6 py-3 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-300">
                 Become a Partner
             </button>
 
