@@ -1,16 +1,18 @@
+import StarBackground from '@/components/StarBackground';
+import ThemeToggle from '@/components/ThemeToggle';
+import Navbar from '@/components/Navbar';
+
 function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Theme Toggle */}
-
+      <ThemeToggle />
       {/* Background Effects */}
-
+      <StarBackground />
       {/* Navbar */}
-
+      <Navbar />
       {/* Main Content */}
-
       {/* Footer */}
-      <h1>Home</h1>
     </div>
   );
 }
