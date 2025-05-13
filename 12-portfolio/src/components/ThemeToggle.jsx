@@ -19,7 +19,7 @@ function ThemeToggle() {
     <button
       onClick={() => setIsDarkMode((prev) => !prev)}
       className={cn(
-        'fixed hidden sm:block top-[14px] right-2 z-50 p-2 rounded-full',
+        'hidden sm:block fixed top-[14px] right-2 z-9999 p-2 rounded-full',
         'focus:outline-hidden cursor-pointer'
       )}
     >

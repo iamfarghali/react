@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Columns2, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', href: '#hero' },
@@ -17,17 +17,25 @@ function Navbar() {
   useEffect(() => {
     // DoesNotWork?
     const handleScroll = () => {
-      setIsScrolled(window.screenY < 10);
+      setIsScrolled(window.scrollY > 100);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    isMenuOpened
+      ? (document.body.style.overflow = 'hidden')
+      : (document.body.style.overflow = 'auto');
+  }, [isMenuOpened]);
+
   return (
     <nav
       className={cn(
-        'fixed w-full z-40 transition-all duration-300 ',
-        isScrolled ? 'py-3 bg-background/95 backdrop-blur-md shadow-xs' : 'py-5'
+        'fixed w-full z-99 transition-all duration-300 border-b border-transparent',
+        isScrolled
+          ? 'py-5 bg-background/90 backdrop-blur-md border-border'
+          : 'py-5'
       )}
     >
       <div className="container flex items-center justify-between">
@@ -68,7 +76,7 @@ function Navbar() {
         {/* Mobile nav */}
         <div
           className={cn(
-            'md:hidden fixed inset-0 bg-background/85  backdrop-blur-xs z-40',
+            'md:hidden h-dvh fixed inset-0 bg-background/95 backdrop-blur-2xl  z-40',
             'transition-all duration-300 flex flex-col items-center justify-center',
             isMenuOpened
               ? ' opacity-100 pointer-events-auto'

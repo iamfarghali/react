@@ -5,6 +5,7 @@
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
+  --color-muted-foreground: hsl(var(--muted-foreground));
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
   --color-card: hsl(var(--card));
@@ -39,7 +40,7 @@
   @keyframes fade-in {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(25px);
     }
     to {
       opacity: 1;
@@ -69,20 +70,22 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
-    --card: 0 0% 100%;
-    --primary: 250 47% 60%;
-    --primary-foreground: 210 40% 98%;
-    --border: 214 32% 91%;
+    --background: 210 40% 98%; /* hsl(210 40% 98%) */
+    --foreground: 222 47% 11%; /* hsl(222 47% 11%) */
+    --muted-foreground: 214.97 15.67% 34.25%; /* hsl(214.97 15.67% 34.25%) */
+    --card: 0 0% 100%; /* hsl(0 0% 100%) */
+    --primary: 250 47% 60%; /* hsl(250 47% 60%) */
+    --primary-foreground: 210 40% 98%; /* hsl(210 40% 98%) */
+    --border: 214 32% 91%; /* hsl(214 32% 91%) */
   }
   .dark {
-    --background: 222 47% 4%;
-    --foreground: 213 31% 91%;
-    --card: 222 47% 8%;
-    --primary: 250 65% 65%;
-    --primary-foreground: 213 31% 91%;
-    --border: 217 33% 20%;
+    --background: 222 47% 4%; /* hsl(222 47% 4%) */
+    --foreground: 213 31% 91%; /* hsl(213 31% 91%) */
+    --muted-foreground: 217.85 11.94% 64.27%; /* hsl(217.85 11.94% 64.27%) */
+    --card: 222 47% 8%; /* hsl(222 47% 8%) */
+    --primary: 250 65% 65%; /* hsl(250 65% 65%) */
+    --primary-foreground: 213 31% 91%; /* hsl(213 31% 91%) */
+    --border: 217 33% 20%; /* hsl(217 33% 20%) */
   }
 
   * {
@@ -127,7 +130,7 @@
 }
 
 @utility card-hover {
-  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-sm;
 }
 
 @utility gradient-border {
