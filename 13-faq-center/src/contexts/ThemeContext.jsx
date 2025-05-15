@@ -1,7 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-
-const LIGHT_THEME = 'light';
-const DARK_THEME = 'dark';
+import { DARK_THEME, LIGHT_THEME } from '../constants';
 
 const ThemeContext = createContext(null);
 

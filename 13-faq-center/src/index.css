@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import 'tailwindcss';
 
 @theme {
@@ -10,12 +11,14 @@
   --color-primary-foreground: hsl(var(--primary-foreground));
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --font-font: 'Inter', sans-serif;
 }
 
 @layer base {
   :root {
     --background: 216, 75%, 95%; /* hsl(216, 75%, 95%) */
-    --foreground: 216, 75%, 5%; /* hsl(216, 75%, 5%) */
+    --foreground: 216, 75%, 7%; /* hsl(216, 75%, 7%) */
 
     --card: ;
     --card-foreground: ;
@@ -30,7 +33,7 @@
   }
 
   .dark {
-    --background: 216, 75%, 5%; /* hsl(216, 75%, 5%) */
+    --background: 216, 75%, 7%; /* hsl(216, 75%, 7%) */
     --foreground: 216, 75%, 85%; /* hsl(216, 75%, 85%) */
 
     --card: ;
@@ -50,6 +53,6 @@
   }
 
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    @apply bg-background text-foreground transition-colors duration-300 font-font;
   }
 }
