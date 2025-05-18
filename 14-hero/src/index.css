@@ -1,68 +1,457 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import 'tailwindcss';
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@theme {
+  --font-ar: 'Cairo';
+  --font-en: 'Inter';
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --color-background-50: var(--background-50);
+  --color-background-100: var(--background-100);
+  --color-background-200: var(--background-200);
+  --color-background-300: var(--background-300);
+  --color-background-400: var(--background-400);
+  --color-background-500: var(--background-500);
+  --color-background-600: var(--background-600);
+  --color-background-700: var(--background-700);
+  --color-background-800: var(--background-800);
+  --color-background-900: var(--background-900);
+  --color-background-950: var(--background-950);
+
+  --color-border-50: var(--border-50);
+  --color-border-100: var(--border-100);
+  --color-border-200: var(--border-200);
+  --color-border-300: var(--border-300);
+  --color-border-400: var(--border-400);
+  --color-border-500: var(--border-500);
+  --color-border-600: var(--border-600);
+  --color-border-700: var(--border-700);
+  --color-border-800: var(--border-800);
+  --color-border-900: var(--border-900);
+  --color-border-950: var(--border-950);
+
+  --color-theme-50: var(--theme-50);
+  --color-theme-100: var(--theme-100);
+  --color-theme-200: var(--theme-200);
+  --color-theme-300: var(--theme-300);
+  --color-theme-400: var(--theme-400);
+  --color-theme-500: var(--theme-500);
+  --color-theme-600: var(--theme-600);
+  --color-theme-700: var(--theme-700);
+  --color-theme-800: var(--theme-800);
+  --color-theme-900: var(--theme-900);
+  --color-theme-950: var(--theme-950);
+
+  --color-accent-50: var(--accent-50);
+  --color-accent-100: var(--accent-100);
+  --color-accent-200: var(--accent-200);
+  --color-accent-300: var(--accent-300);
+  --color-accent-400: var(--accent-400);
+  --color-accent-500: var(--accent-500);
+  --color-accent-600: var(--accent-600);
+  --color-accent-700: var(--accent-700);
+  --color-accent-800: var(--accent-800);
+  --color-accent-900: var(--accent-900);
+  --color-accent-950: var(--accent-950);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+/*  
+  - Three theme Colors, Each color has a tint and a shade
+  - User can toggle between dark/light mode and change the color theme
+    - primary-light (defualt)   | primary-dark
+    - secondary-light           | secondary-dark
+    - tertiary-light            | tertiary-dark
+  - [ DONOT Depend on background / foreground ]
+  - background [50 -> 950] {same hue like the theme color with less saturation} [Maybe I should chane this name]
+  - border [50 -> 950] {exactly like the background}
+  - theme [50 -> 950]
+  - accent [50 -> 950]
+*/
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
+  /* primary-light (defualt) */
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    /* Theme Colors */
+    --theme-50: hsl(17, 95%, 95%);
+    --theme-100: hsl(17, 95%, 85%);
+    --theme-200: hsl(17, 95%, 75%);
+    --theme-300: hsl(17, 95%, 65%);
+    --theme-400: hsl(17, 95%, 50%);
+    --theme-500: hsl(17, 95%, 40%);
+    --theme-600: hsl(17, 95%, 32%);
+    --theme-700: hsl(17, 95%, 25%);
+    --theme-800: hsl(17, 95%, 18%);
+    --theme-900: hsl(17, 95%, 12%);
+    --theme-950: hsl(17, 95%, 6%);
+
+    /* Background Colors (Desaturated Theme Hue) */
+    --background-50: hsl(17, 30%, 98%);
+    --background-100: hsl(17, 30%, 95%);
+    --background-200: hsl(17, 30%, 90%);
+    --background-300: hsl(17, 30%, 80%);
+    --background-400: hsl(17, 30%, 70%);
+    --background-500: hsl(17, 30%, 60%);
+    --background-600: hsl(17, 30%, 50%);
+    --background-700: hsl(17, 30%, 40%);
+    --background-800: hsl(17, 30%, 30%);
+    --background-900: hsl(17, 30%, 15%);
+    --background-950: hsl(17, 30%, 5%);
+
+    /* Border Colors (Desaturated Theme Hue) */
+    --border-50: hsl(17, 30%, 98%);
+    --border-100: hsl(17, 30%, 95%);
+    --border-200: hsl(17, 30%, 90%);
+    --border-300: hsl(17, 30%, 80%);
+    --border-400: hsl(17, 30%, 70%);
+    --border-500: hsl(17, 30%, 60%);
+    --border-600: hsl(17, 30%, 50%);
+    --border-700: hsl(17, 30%, 40%);
+    --border-800: hsl(17, 30%, 30%);
+    --border-900: hsl(17, 30%, 15%);
+    --border-950: hsl(17, 30%, 5%);
+
+    /* Accent Colors (Hue Shifted to 227) */
+
+    --accent-50: hsl(10, 95%, 95%);
+    --accent-100: hsl(10, 95%, 85%);
+    --accent-200: hsl(10, 95%, 75%);
+    --accent-300: hsl(10, 95%, 65%);
+    --accent-400: hsl(10, 95%, 50%);
+    --accent-500: hsl(10, 95%, 40%);
+    --accent-600: hsl(10, 95%, 32%);
+    --accent-700: hsl(10, 95%, 25%);
+    --accent-800: hsl(10, 95%, 18%);
+    --accent-900: hsl(10, 95%, 12%);
+    --accent-950: hsl(10, 95%, 6%);
   }
-  a:hover {
-    color: #747bff;
+
+  .theme-primary-light {
+    /* Theme Colors */
+    --theme-50: hsl(17, 95%, 95%);
+    --theme-100: hsl(17, 95%, 85%);
+    --theme-200: hsl(17, 95%, 75%);
+    --theme-300: hsl(17, 95%, 65%);
+    --theme-400: hsl(17, 95%, 50%);
+    --theme-500: hsl(17, 95%, 40%);
+    --theme-600: hsl(17, 95%, 32%);
+    --theme-700: hsl(17, 95%, 25%);
+    --theme-800: hsl(17, 95%, 18%);
+    --theme-900: hsl(17, 95%, 12%);
+    --theme-950: hsl(17, 95%, 6%);
+
+    /* Background Colors (Desaturated Theme Hue) */
+    --background-50: hsl(17, 30%, 98%);
+    --background-100: hsl(17, 30%, 95%);
+    --background-200: hsl(17, 30%, 90%);
+    --background-300: hsl(17, 30%, 80%);
+    --background-400: hsl(17, 30%, 70%);
+    --background-500: hsl(17, 30%, 60%);
+    --background-600: hsl(17, 30%, 50%);
+    --background-700: hsl(17, 30%, 40%);
+    --background-800: hsl(17, 30%, 30%);
+    --background-900: hsl(17, 30%, 15%);
+    --background-950: hsl(17, 30%, 5%);
+
+    /* Border Colors (Desaturated Theme Hue) */
+    --border-50: hsl(17, 30%, 98%);
+    --border-100: hsl(17, 30%, 95%);
+    --border-200: hsl(17, 30%, 90%);
+    --border-300: hsl(17, 30%, 80%);
+    --border-400: hsl(17, 30%, 70%);
+    --border-500: hsl(17, 30%, 60%);
+    --border-600: hsl(17, 30%, 50%);
+    --border-700: hsl(17, 30%, 40%);
+    --border-800: hsl(17, 30%, 30%);
+    --border-900: hsl(17, 30%, 15%);
+    --border-950: hsl(17, 30%, 5%);
+
+    /* Accent Colors (Hue Shifted to 227) */
+
+    --accent-50: hsl(10, 95%, 95%);
+    --accent-100: hsl(10, 95%, 85%);
+    --accent-200: hsl(10, 95%, 75%);
+    --accent-300: hsl(10, 95%, 65%);
+    --accent-400: hsl(10, 95%, 50%);
+    --accent-500: hsl(10, 95%, 40%);
+    --accent-600: hsl(10, 95%, 32%);
+    --accent-700: hsl(10, 95%, 25%);
+    --accent-800: hsl(10, 95%, 18%);
+    --accent-900: hsl(10, 95%, 12%);
+    --accent-950: hsl(10, 95%, 6%);
   }
-  button {
-    background-color: #f9f9f9;
+
+  .theme-primary-dark {
+    /* Theme Colors */
+    --theme-50: hsl(17, 95%, 6%);
+    --theme-100: hsl(17, 95%, 12%);
+    --theme-200: hsl(17, 95%, 18%);
+    --theme-300: hsl(17, 95%, 25%);
+    --theme-400: hsl(17, 95%, 32%);
+    --theme-500: hsl(17, 95%, 40%);
+    --theme-600: hsl(17, 95%, 50%);
+    --theme-700: hsl(17, 95%, 65%);
+    --theme-800: hsl(17, 95%, 75%);
+    --theme-900: hsl(17, 95%, 85%);
+    --theme-950: hsl(17, 95%, 95%);
+
+    /* Background Colors (Desaturated Theme Hue) */
+    --background-50: hsl(17, 30%, 1%);
+    --background-100: hsl(17, 30%, 15%);
+    --background-200: hsl(17, 30%, 30%);
+    --background-300: hsl(17, 30%, 40%);
+    --background-400: hsl(17, 30%, 50%);
+    --background-500: hsl(17, 30%, 60%);
+    --background-600: hsl(17, 30%, 70%);
+    --background-700: hsl(17, 30%, 80%);
+    --background-800: hsl(17, 30%, 90%);
+    --background-900: hsl(17, 30%, 95%);
+    --background-950: hsl(17, 30%, 98%);
+
+    /* Border Colors (Desaturated Theme Hue) */
+    --border-50: hsl(17, 30%, 5%);
+    --border-100: hsl(17, 30%, 15%);
+    --border-200: hsl(17, 30%, 30%);
+    --border-300: hsl(17, 30%, 40%);
+    --border-400: hsl(17, 30%, 50%);
+    --border-500: hsl(17, 30%, 60%);
+    --border-600: hsl(17, 30%, 70%);
+    --border-700: hsl(17, 30%, 80%);
+    --border-800: hsl(17, 30%, 90%);
+    --border-900: hsl(17, 30%, 95%);
+    --border-950: hsl(17, 30%, 98%);
+
+    /* Accent Colors (Hue Shifted to 10) */
+    --accent-50: hsl(10, 95%, 6%);
+    --accent-100: hsl(10, 95%, 12%);
+    --accent-200: hsl(10, 95%, 18%);
+    --accent-300: hsl(10, 95%, 25%);
+    --accent-400: hsl(10, 95%, 32%);
+    --accent-500: hsl(10, 95%, 40%);
+    --accent-600: hsl(10, 95%, 50%);
+    --accent-700: hsl(10, 95%, 65%);
+    --accent-800: hsl(10, 95%, 75%);
+    --accent-900: hsl(10, 95%, 85%);
+    --accent-950: hsl(10, 95%, 95%);
+  }
+
+  .theme-secondary-light {
+    /* Theme Colors */
+    --theme-50: hsl(227, 95%, 95%);
+    --theme-100: hsl(227, 95%, 85%);
+    --theme-200: hsl(227, 95%, 75%);
+    --theme-300: hsl(227, 95%, 65%);
+    --theme-400: hsl(227, 95%, 50%);
+    --theme-500: hsl(227, 95%, 40%);
+    --theme-600: hsl(227, 95%, 32%);
+    --theme-700: hsl(227, 95%, 25%);
+    --theme-800: hsl(227, 95%, 18%);
+    --theme-900: hsl(227, 95%, 12%);
+    --theme-950: hsl(227, 95%, 6%);
+
+    /* Background Colors (Desaturated Theme Hue) */
+    --background-50: hsl(227, 30%, 98%);
+    --background-100: hsl(227, 30%, 95%);
+    --background-200: hsl(227, 30%, 90%);
+    --background-300: hsl(227, 30%, 80%);
+    --background-400: hsl(227, 30%, 70%);
+    --background-500: hsl(227, 30%, 60%);
+    --background-600: hsl(227, 30%, 50%);
+    --background-700: hsl(227, 30%, 40%);
+    --background-800: hsl(227, 30%, 30%);
+    --background-900: hsl(227, 30%, 15%);
+    --background-950: hsl(227, 30%, 5%);
+
+    /* Border Colors (Desaturated Theme Hue) */
+    --border-50: hsl(227, 30%, 98%);
+    --border-100: hsl(227, 30%, 95%);
+    --border-200: hsl(227, 30%, 90%);
+    --border-300: hsl(227, 30%, 80%);
+    --border-400: hsl(227, 30%, 70%);
+    --border-500: hsl(227, 30%, 60%);
+    --border-600: hsl(227, 30%, 50%);
+    --border-700: hsl(227, 30%, 40%);
+    --border-800: hsl(227, 30%, 30%);
+    --border-900: hsl(227, 30%, 15%);
+    --border-950: hsl(227, 30%, 5%);
+
+    /* Accent Colors (Hue Shifted to 300 for contrast, a pink/violet) */
+    --accent-50: hsl(300, 95%, 95%);
+    --accent-100: hsl(300, 95%, 85%);
+    --accent-200: hsl(300, 95%, 75%);
+    --accent-300: hsl(300, 95%, 65%);
+    --accent-400: hsl(300, 95%, 50%);
+    --accent-500: hsl(300, 95%, 40%);
+    --accent-600: hsl(300, 95%, 32%);
+    --accent-700: hsl(300, 95%, 25%);
+    --accent-800: hsl(300, 95%, 18%);
+    --accent-900: hsl(300, 95%, 12%);
+    --accent-950: hsl(300, 95%, 6%);
+  }
+
+  .theme-secondary-dark {
+    /* Theme Colors */
+    --theme-50: hsl(227, 95%, 6%);
+    --theme-100: hsl(227, 95%, 12%);
+    --theme-200: hsl(227, 95%, 18%);
+    --theme-300: hsl(227, 95%, 25%);
+    --theme-400: hsl(227, 95%, 32%);
+    --theme-500: hsl(227, 95%, 40%);
+    --theme-600: hsl(227, 95%, 50%);
+    --theme-700: hsl(227, 95%, 65%);
+    --theme-800: hsl(227, 95%, 75%);
+    --theme-900: hsl(227, 95%, 85%);
+    --theme-950: hsl(227, 95%, 95%);
+
+    /* Background Colors (Desaturated Theme Hue) */
+    --background-50: hsl(227, 30%, 1%);
+    --background-100: hsl(227, 30%, 15%);
+    --background-200: hsl(227, 30%, 30%);
+    --background-300: hsl(227, 30%, 40%);
+    --background-400: hsl(227, 30%, 50%);
+    --background-500: hsl(227, 30%, 60%);
+    --background-600: hsl(227, 30%, 70%);
+    --background-700: hsl(227, 30%, 80%);
+    --background-800: hsl(227, 30%, 90%);
+    --background-900: hsl(227, 30%, 95%);
+    --background-950: hsl(227, 30%, 98%);
+
+    /* Border Colors (Desaturated Theme Hue) */
+    --border-50: hsl(227, 30%, 5%);
+    --border-100: hsl(227, 30%, 15%);
+    --border-200: hsl(227, 30%, 30%);
+    --border-300: hsl(227, 30%, 40%);
+    --border-400: hsl(227, 30%, 50%);
+    --border-500: hsl(227, 30%, 60%);
+    --border-600: hsl(227, 30%, 70%);
+    --border-700: hsl(227, 30%, 80%);
+    --border-800: hsl(227, 30%, 90%);
+    --border-900: hsl(227, 30%, 95%);
+    --border-950: hsl(227, 30%, 98%);
+
+    /* Accent Colors (Hue Shifted to 300 for contrast) */
+    --accent-50: hsl(300, 95%, 6%);
+    --accent-100: hsl(300, 95%, 12%);
+    --accent-200: hsl(300, 95%, 18%);
+    --accent-300: hsl(300, 95%, 25%);
+    --accent-400: hsl(300, 95%, 32%);
+    --accent-500: hsl(300, 95%, 40%);
+    --accent-600: hsl(300, 95%, 50%);
+    --accent-700: hsl(300, 95%, 65%);
+    --accent-800: hsl(300, 95%, 75%);
+    --accent-900: hsl(300, 95%, 85%);
+    --accent-950: hsl(300, 95%, 95%);
+  }
+
+  .theme-tertiary-light {
+    /* Theme Colors */
+    --theme-50: hsl(127, 95%, 95%);
+    --theme-100: hsl(127, 95%, 85%);
+    --theme-200: hsl(127, 95%, 75%);
+    --theme-300: hsl(127, 95%, 65%);
+    --theme-400: hsl(127, 95%, 50%);
+    --theme-500: hsl(127, 95%, 40%);
+    --theme-600: hsl(127, 95%, 32%);
+    --theme-700: hsl(127, 95%, 25%);
+    --theme-800: hsl(127, 95%, 18%);
+    --theme-900: hsl(127, 95%, 12%);
+    --theme-950: hsl(127, 95%, 6%);
+
+    /* Background Colors (Desaturated Theme Hue) */
+    --background-50: hsl(127, 30%, 98%);
+    --background-100: hsl(127, 30%, 95%);
+    --background-200: hsl(127, 30%, 90%);
+    --background-300: hsl(127, 30%, 80%);
+    --background-400: hsl(127, 30%, 70%);
+    --background-500: hsl(127, 30%, 60%);
+    --background-600: hsl(127, 30%, 50%);
+    --background-700: hsl(127, 30%, 40%);
+    --background-800: hsl(127, 30%, 30%);
+    --background-900: hsl(127, 30%, 15%);
+    --background-950: hsl(127, 30%, 5%);
+
+    /* Border Colors (Desaturated Theme Hue) */
+    --border-50: hsl(127, 30%, 98%);
+    --border-100: hsl(127, 30%, 95%);
+    --border-200: hsl(127, 30%, 90%);
+    --border-300: hsl(127, 30%, 80%);
+    --border-400: hsl(127, 30%, 70%);
+    --border-500: hsl(127, 30%, 60%);
+    --border-600: hsl(127, 30%, 50%);
+    --border-700: hsl(127, 30%, 40%);
+    --border-800: hsl(127, 30%, 30%);
+    --border-900: hsl(127, 30%, 15%);
+    --border-950: hsl(127, 30%, 5%);
+
+    /* Accent Colors (Hue Shifted to 200 for bluish-cyan contrast) */
+    --accent-50: hsl(200, 95%, 95%);
+    --accent-100: hsl(200, 95%, 85%);
+    --accent-200: hsl(200, 95%, 75%);
+    --accent-300: hsl(200, 95%, 65%);
+    --accent-400: hsl(200, 95%, 50%);
+    --accent-500: hsl(200, 95%, 40%);
+    --accent-600: hsl(200, 95%, 32%);
+    --accent-700: hsl(200, 95%, 25%);
+    --accent-800: hsl(200, 95%, 18%);
+    --accent-900: hsl(200, 95%, 12%);
+    --accent-950: hsl(200, 95%, 6%);
+  }
+
+  .theme-tertiary-dark {
+    /* Theme Colors */
+    --theme-50: hsl(127, 95%, 6%);
+    --theme-100: hsl(127, 95%, 12%);
+    --theme-200: hsl(127, 95%, 18%);
+    --theme-300: hsl(127, 95%, 25%);
+    --theme-400: hsl(127, 95%, 32%);
+    --theme-500: hsl(127, 95%, 40%);
+    --theme-600: hsl(127, 95%, 50%);
+    --theme-700: hsl(127, 95%, 65%);
+    --theme-800: hsl(127, 95%, 75%);
+    --theme-900: hsl(127, 95%, 85%);
+    --theme-950: hsl(127, 95%, 95%);
+
+    /* Background Colors (Desaturated Theme Hue) */
+    --background-50: hsl(127, 30%, 1%);
+    --background-100: hsl(127, 30%, 15%);
+    --background-200: hsl(127, 30%, 30%);
+    --background-300: hsl(127, 30%, 40%);
+    --background-400: hsl(127, 30%, 50%);
+    --background-500: hsl(127, 30%, 60%);
+    --background-600: hsl(127, 30%, 70%);
+    --background-700: hsl(127, 30%, 80%);
+    --background-800: hsl(127, 30%, 90%);
+    --background-900: hsl(127, 30%, 95%);
+    --background-950: hsl(127, 30%, 98%);
+
+    /* Border Colors (Desaturated Theme Hue) */
+    --border-50: hsl(127, 30%, 5%);
+    --border-100: hsl(127, 30%, 15%);
+    --border-200: hsl(127, 30%, 30%);
+    --border-300: hsl(127, 30%, 40%);
+    --border-400: hsl(127, 30%, 50%);
+    --border-500: hsl(127, 30%, 60%);
+    --border-600: hsl(127, 30%, 70%);
+    --border-700: hsl(127, 30%, 80%);
+    --border-800: hsl(127, 30%, 90%);
+    --border-900: hsl(127, 30%, 95%);
+    --border-950: hsl(127, 30%, 98%);
+
+    /* Accent Colors (Hue Shifted to 200 for cyan) */
+    --accent-50: hsl(200, 95%, 6%);
+    --accent-100: hsl(200, 95%, 12%);
+    --accent-200: hsl(200, 95%, 18%);
+    --accent-300: hsl(200, 95%, 25%);
+    --accent-400: hsl(200, 95%, 32%);
+    --accent-500: hsl(200, 95%, 40%);
+    --accent-600: hsl(200, 95%, 50%);
+    --accent-700: hsl(200, 95%, 65%);
+    --accent-800: hsl(200, 95%, 75%);
+    --accent-900: hsl(200, 95%, 85%);
+    --accent-950: hsl(200, 95%, 95%);
+  }
+
+  * {
+    @apply border-border-900;
+  }
+  body {
+    @apply bg-background-50 text-background-950 transition-colors duration-300;
   }
 }
