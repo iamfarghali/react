@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&display=swap');
 @import 'tailwindcss';
 
 @theme {
-  --font-ar: 'Cairo';
-  --font-en: 'Inter';
+  --font-font: 'Beiruti', sans-serif;
 
   --color-background-50: var(--background-50);
   --color-background-100: var(--background-100);

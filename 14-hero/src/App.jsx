@@ -1,19 +1,16 @@
 import Hero from './components/Hero';
-import LangChanger from './components/LangChanger';
-import ThemeChanger from './components/ThemeChanger';
-import { LangProvider } from './contexts/LangContext';
-
-import { ThemeProvider } from './contexts/ThemeContext';
+import LangSwitcher from './components/LangSwitcher';
+import ThemeSwitcher from './components/ThemeSwitcher';
 
 function App() {
   return (
-    <ThemeProvider>
-      <LangProvider>
-        <ThemeChanger />
-        <LangChanger />
+    <div className="relative overflow-x-hidden font-font h-[3000px]">
+      <div className=" relative container mx-auto">
+        <ThemeSwitcher />
+        <LangSwitcher />
         <Hero />
-      </LangProvider>
-    </ThemeProvider>
+      </div>
+    </div>
   );
 }
 

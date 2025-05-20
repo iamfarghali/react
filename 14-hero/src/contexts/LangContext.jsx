@@ -2,11 +2,16 @@ import { createContext, useContext, useEffect, useState } from 'react';
 
 const LangContext = createContext(null);
 
-export function LangProvider({ children }) {
-  const [lang, setLang] = useState('en');
+export function LangProvider({ children, defualtLang = 'en' }) {
+  const [lang, setLang] = useState(() => {
+    const preferredLang = localStorage.getItem('language');
+    return preferredLang ?? defualtLang;
+  });
 
   useEffect(() => {
     const rootEl = document.documentElement;
+
+    // Change document's direction
     if (lang === 'ar') {
       rootEl.lang = 'ar';
       rootEl.style.direction = 'rtl';
@@ -15,26 +20,13 @@ export function LangProvider({ children }) {
       rootEl.style.direction = 'ltr';
     }
 
-    const existing = document.getElementById('lang-font');
-    if (existing) existing.remove();
-
-    const link = document.createElement('link');
-    link.id = 'lang-font';
-    link.rel = 'stylesheet';
-    link.href =
-      lang === 'ar'
-        ? 'https://fonts.googleapis.com/css2?family=Cairo&display=swap'
-        : 'https://fonts.googleapis.com/css2?family=Inter&display=swap';
-    document.head.appendChild(link);
+    // Update preferred language
+    localStorage.setItem('language', lang);
   }, [lang]);
 
   return (
     <LangContext.Provider value={{ lang, setLang }}>
-      <div
-        className={` overflow-hidden ${lang === 'ar' ? 'font-ar' : 'font-en'}`}
-      >
-        {children}
-      </div>
+      {children}
     </LangContext.Provider>
   );
 }
