@@ -1,47 +1,35 @@
 import { useTheme } from '../contexts/ThemeContext';
-import { Moon, Sun } from 'lucide-react';
-import { useState } from 'react';
 import { themes } from '../constants';
 import T from './T';
 import { TRANSLATIONS } from '../data';
+import { CheckCircle } from 'lucide-react';
 
 function ThemeSwitcher() {
-  const [isOpen, setIsOpen] = useState(false);
   const { theme, setTheme } = useTheme();
-
   const updateTheme = (newTheme) => {
-    setIsOpen(false);
     if (newTheme === theme) return;
     setTheme(newTheme);
   };
 
   return (
-    <div className="">
-      <button
-        aria-label="Change theme"
-        onClick={() => setIsOpen((prev) => !prev)}
-        className={`absolute ${isOpen ? 'top-4 -right-100' : 'top-4 right-4'} 
-          p-2 bg-theme-950 text-theme-50 cursor-pointer 
-          aspect-square rounded-full z-999 transition-all ease-out duration-300`}
-      >
-        {theme.includes('dark') ? <Sun /> : <Moon />}
-      </button>
+    <div className="flex flex-col gap-4 p-1">
+      <p className="mx-2 text-lg font-bold text-background-950">
+        <T k={'themeSettings'} />
+      </p>
 
-      <div
-        className={`absolute ${isOpen ? 'top-0 right-0' : 'top-0 -right-100'} 
-        flex flex-col justify-center gap-2 rounded-bl-2xl 
-        bg-theme-950 p-4 z-999 transition-all ease-out duration-300`}
-      >
-        {themes.map((theme, idx) => (
+      <div className="flex flex-col justify-center gap-2">
+        {themes.map((t, idx) => (
           <button
-            aria-label={`Change to ${TRANSLATIONS['en'][theme.mode]} theme, ${
-              TRANSLATIONS['en'][theme.name] || theme.name
+            aria-label={`Change to ${TRANSLATIONS['en'][t.mode]} theme, ${
+              TRANSLATIONS['en'][t.name] || t.name
             }-Theme`}
             key={idx}
-            className="p-2 border rounded-xl text-xs font-semibold bg-background-800 border-none text-background-300 cursor-pointer"
-            onClick={() => updateTheme(theme.className)}
+            className="flex items-center justify-between px-4 py-3 border rounded-xl font-semibold bg-background-800 border-none text-background-200 cursor-pointer hover:bg-background-700 duration-300 disabled:bg-background-100 disabled:text-background-900 disabled:cursor-not-allowed"
+            onClick={() => updateTheme(t.className)}
+            disabled={theme === t.className}
           >
-            <T k={theme.mode} /> - <T k={theme.name} />
+            <T k={t.mode} /> - <T k={t.name} />
+            {theme === t.className && <CheckCircle className="w-5 h-5" />}
           </button>
         ))}
       </div>

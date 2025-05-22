@@ -28,6 +28,8 @@ export const TRANSLATIONS = {
     langEn: 'english',
     themeLight: 'light',
     themeDark: 'dark',
+    themeSettings: 'Theme Settings',
+    langSettings: 'Language Settings',
   },
   ar: {
     new: 'جديد',
@@ -58,5 +60,7 @@ export const TRANSLATIONS = {
     langEn: 'english',
     themeLight: 'مُضئ',
     themeDark: 'مُعتم',
+    themeSettings: 'إعدادت الوجهة',
+    langSettings: 'إعدادت اللغة',
   },
 };
